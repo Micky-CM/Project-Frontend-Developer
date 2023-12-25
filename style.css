@@ -14,6 +14,11 @@ body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
+
+.inactive {
+    display: none;
+}
+
 .login {
     width: 100%;
     height: 100vh;
@@ -189,8 +194,12 @@ body {
     margin:0;
     color: var(--very-light-pink);
 }
-/*Class seven*/
+/*Desktop menu*/
 .desktop-menu {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    background: var(--white);
     width: 120px;
     height: auto;
     border: 1px solid var(--very-light-pink);
@@ -222,12 +231,10 @@ body {
     margin-bottom: 20px;
     display: inline-block;
 }
-/*Class eight*/
+/*Mobile menu*/
 .mobile-menu {
-    display: flex;
-    height: 100vh;
-    flex-direction: column;
-    justify-content: space-between;
+    position: absolute;
+    top: 60px;
     padding: 24px;
 }
 .mobile-menu a {
@@ -390,6 +397,10 @@ nav {
     font-size: var(--sm);
     margin-right: 12px;
 }
+.navbar-email:hover {
+    color: var(--hospital-green);
+}
+
 .navbar-shopping-cart {
     position: relative;
 }
@@ -497,16 +508,24 @@ nav {
         width: 140px;
         height: 140px;
     }
-    .menu {
-        display: block;
-    }
     .navbar-left ul {
         display: none;
     }
     .navbar-email {
         display: none;
     }
+    .desktop-menu {
+        display: none;
+    }
     .product-detail {
         width: 100%;
+    }
+}
+@media (min-width: 641px) {
+    .burger-menu-icon {
+        display: none;
+    }
+    .mobile-menu {
+        display: none;
     }
 }
