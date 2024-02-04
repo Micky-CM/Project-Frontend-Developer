@@ -6,16 +6,19 @@ const burgerMenuIcon = document.querySelector('.burger-menu-icon')
 const mobileMenu = document.querySelector('.mobile-menu')
 //Shopping cart aside
 const shoppingCartMenuIcon = document.querySelector('.navbar-shopping-cart')
-const asideProductDetail = document.querySelector('.product-detail')
+const asideOrderDetail = document.querySelector('.order-detail')
+//Product detail aside
+//const shoppingCartMenuIcon = document.querySelector('.navbar-shopping-cart')
+//const asideOrderDetail = document.querySelector('.order-detail')
 //Cards Container
 const cardsContainer = document.querySelector('.cards-container')
 
 //Functions for the navbar
 const toggleDisplay = (element) => {
-  let inactiveItems = [desktopMenu, mobileMenu, asideProductDetail];
+  let inactiveItems = [desktopMenu, mobileMenu, asideOrderDetail];
         for (const item of inactiveItems) {
             if (item != element  && !item.classList.contains('inactive')) {
-                item.classList.toggle('inactive');
+              item.classList.toggle('inactive');
             }
         }
         element.classList.toggle('inactive');
@@ -30,7 +33,7 @@ burgerMenuIcon.addEventListener('click', () => {
 })
 
 shoppingCartMenuIcon.addEventListener('click', () => {
-  toggleDisplay(asideProductDetail)
+  toggleDisplay(asideOrderDetail)
 })
 
 //Function to create the cards
@@ -61,7 +64,7 @@ productList.push ({
   image: 'https://m.media-amazon.com/images/I/61e+sZ9rgNL._AC_SL1500_.jpg'
 });
 productList.push ({
-  name:'Tennis Montain Bike',
+  name:'Tennis Mountain Bike',
   price: 2200,
   image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8ea578f6c07847fca2d0ac85011d7f1f_9366/Tenis_para_Mountain_Bike_Five_Ten_Freerider_Negro_FW2835_01_standard.jpg'
 });
@@ -85,7 +88,7 @@ function renderProducts(productList) {
   for (product of productList) {
     const productCard = document.createElement('div')
     productCard.classList.add('product-card')
-    //product = {name, price, image} -> product.image
+    //product = {image, price, name} -> product.image
     const productImage = document.createElement('img')
     productImage.setAttribute('src', product.image)
   
